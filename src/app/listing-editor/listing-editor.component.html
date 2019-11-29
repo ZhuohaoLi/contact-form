@@ -1,0 +1,8 @@
+<ul *ngFor="let listing of listings">
+    <li>{{listing.id}}</li>
+    <li>{{listing.title}}</li>
+</ul>
+
+
+
+<div *ngIf="errorMessage" style="color:red" class="sdf">{{errorMessage}}</div>

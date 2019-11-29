@@ -1,0 +1,111 @@
+
+<div class=formTitle>
+    <p style="text-align:center">Contact us!</p>
+</div>
+
+<form style="text-align:center;" [formGroup]="profileForm">
+    <label>
+        Name
+    </label>
+    <br>
+    <input id=name type="text" placeholder="name..." formControlName="name">
+    <div *ngIf="name.invalid && name.touched" class="alert alert-danger">
+        <div *ngIf="name.errors.required">
+            Please fill out this field.
+        </div>
+        <div *ngIf="name.errors.minlength">
+            Name must be at least 5 characters long.
+        </div>
+        <div *ngIf="name.errors.maxlength">
+            Name must be no longer than 100 characters long.
+        </div>
+        <div *ngIf="name.errors.pattern">
+            Please enter letters.
+        </div>
+    </div>
+    <br><br>
+
+    <label>
+        Phone#
+    </label>
+    <br>
+    <input id=phone type="text" placeholder="phone number..." formControlName="phone">
+    <div *ngIf="phone.invalid && phone.touched" class="alert alert-danger">
+        <div *ngIf="phone.errors.required">
+            Please fill out this field.
+        </div>
+        <div *ngIf="phone.errors.minlength">
+            Phone must be at least 2 characters long.
+        </div>
+        <div *ngIf="phone.errors.maxlength">
+            Phone must be no longer than 9 characters long.
+        </div>
+        <div *ngIf="phone.errors.pattern">
+            Please enter numbers.
+        </div>
+
+    </div>
+    <br><br>
+
+    <label>
+        Email Address
+    </label>
+    <br>
+    <input id=email type="text" placeholder="email address..." formControlName="email">
+    <div *ngIf="email.invalid &&  email.touched" class="alert alert-danger">
+        <div *ngIf="email.errors.required">
+            Please fill out this field.
+        </div>
+        <div *ngIf="email.errors.email">
+            Please enter correct email address.
+        </div>
+
+    </div>
+    <br><br>
+    <label>
+        Date of Birth
+    </label>
+    <br>
+    <input id=birthday type="date" formControlName="birthday" min="{{mindate | date:'yyyy-MM-dd'}}" max="{{maxdate | date:'yyyy-MM-dd'}}">
+    <div *ngIf="birthday.invalid &&  birthday.touched" class="alert alert-danger">
+        <div *ngIf="birthday.errors.required">
+            Please fill out this field.
+        </div>
+        <div *ngIf="birthday.errors.isError">
+            Invalid Birthday Input...
+        </div>
+    </div>
+
+    <br><br>
+    <label>
+        Message
+    </label>
+    <br>
+    <textarea placeholder="Write Something..." id=message type="text" formControlName="message"
+        class="form-control md-textarea"></textarea>
+    <div *ngIf="message.invalid && message.touched" class="alert alert-danger">
+        <div *ngIf="message.errors.required">
+            Please fill out this field.
+        </div>
+    </div>
+    <br><br>
+    <button id=submit type="submit" (click)="onSubmit()">Submit</button>
+
+</form>
+<div class=inputContent style="text-align:center;" >
+<h3>Your Submitted Input:</h3>
+<p>Name:<span id='displayName'></span></p>
+<p>Phone number:<span id='displayPhonenumber'></span></p>
+<p>Email address:<span id='displayEmailaddress'></span></p>
+<p>Date of Birth:<span id='displayDateofbirth'></span></p>
+<p>Your message:<span id='displayMessage'></span></p>
+</div>
+
+<div *ngIf="this.profileForm.status=='VALID'">
+    <ul>  
+    <li *ngFor="let inputvalue of inputvalues">
+        {{ inputvalue }}
+    </li>
+    </ul>
+</div>
+

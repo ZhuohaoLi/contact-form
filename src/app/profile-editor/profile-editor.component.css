@@ -1,0 +1,37 @@
+.needs-validation{
+    font-size:15px;
+}
+#name{
+    height:25px;
+    width:15%;
+}
+#email{
+    height:25px;
+    width:15%;
+}
+#phone{
+    height:25px;
+    width:15%; 
+}
+#message{
+    height:100px;
+    width:25%;
+    margin-left:auto;
+    margin-right:auto;
+}
+#submit{
+    font-size:22px;
+    
+}
+#birthday{
+    height:25px;
+    width:15%;
+}
+.alert{
+    color:red;
+    width:20%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
