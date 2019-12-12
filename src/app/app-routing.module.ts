@@ -7,7 +7,7 @@ import { ListingEditorComponent } from './listing-editor/listing-editor.componen
 
 
 const routes: Routes = [
-  {path:'',component:HomeEditorComponent},
+  {path:'',redirectTo:'/home',pathMatch: 'full'},
   {path: 'home',component: HomeEditorComponent},
   {path: 'contactform', component:ProfileEditorComponent},
   {path: 'listing', component:ListingEditorComponent},

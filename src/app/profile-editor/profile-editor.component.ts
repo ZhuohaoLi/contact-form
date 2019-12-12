@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import * as moment from 'moment';
 import { FormService } from '../form.service';
@@ -15,11 +15,12 @@ export class ProfileEditorComponent implements OnInit {
   inputvalues=[];
   mindate=moment().subtract(101,'years');
   maxdate=moment();
+  greetings="";
   
-
   constructor(private _formservice:FormService) {
     
-  } 
+  }
+
   ngOnInit() {
     this.profileForm=this._formservice.getForm();
     /*this.profileForm = this.fb.group({
@@ -44,8 +45,9 @@ export class ProfileEditorComponent implements OnInit {
   
 
   onSubmit() {
-     if(this.profileForm.status.localeCompare("VALID")==0){
+    if(this.profileForm.status.localeCompare("VALID")==0){
         console.log(this.profileForm);
+        console.log(this.profileForm.value.birthday);
         this.inputvalues=[this.profileForm.value.name,this.profileForm.value.phone,this.profileForm.value.email,this.profileForm.value.birthday,this.profileForm.value.message]
         console.log(this.inputvalues);
         document.getElementById('displayName').innerHTML = this.profileForm.value.name;

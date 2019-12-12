@@ -15,5 +15,10 @@ export class ListingService {
   getListing():Observable<Listing[]>{
     return this.http.get<Listing[]>(this._url);
   }
+  addListing(list:Listing):Observable<Listing[]>{
+    return this.http.post<Listing[]>(this._url,list);
+  }
+  
+
 
 }

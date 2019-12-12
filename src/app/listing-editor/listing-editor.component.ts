@@ -7,24 +7,33 @@ import { ListingService } from '../listing.service';
   styleUrls: ['./listing-editor.component.css']
 })
 export class ListingEditorComponent implements OnInit {
-  public listings=[];
+  listings=[];
   errorMessage:string;
   constructor(private _listingService: ListingService) { }
-
+  newListings={
+    userId: 3,
+    id:5,
+    title:"hello",
+    body:"world"
+  }
+    
+  
   ngOnInit() {
-
+    this._listingService
+        .addListing(this.newListings)
+        
     this._listingService.getListing()
       .subscribe(
         // if data returned
-        data => {this.listings=data, this.asdf()},
+        data => {this.listings=data,this.listings.push(this.newListings)},
         // if data is error of does not exist
-        err=>{console.warn(err), this.errorResponse()}
+        err=>{console.warn(err)}
 
-        )
+      )
+    
+    console.log(this.newListings);
   }
-  asdf(){
-
-  }
+  
   errorResponse(){
     this.errorMessage = "sorry bal bla bla"
   }

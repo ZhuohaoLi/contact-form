@@ -8,8 +8,8 @@
         Name
     </label>
     <br>
-    <input id=name type="text" placeholder="name..." formControlName="name">
-    <div *ngIf="name.invalid && name.touched" class="alert alert-danger">
+    <input  id=name  type="text" placeholder="name..." formControlName="name">
+    <div *ngIf="name.invalid && name.touched" class="al ert alert-danger">
         <div *ngIf="name.errors.required">
             Please fill out this field.
         </div>
@@ -71,7 +71,7 @@
         <div *ngIf="birthday.errors.required">
             Please fill out this field.
         </div>
-        <div *ngIf="birthday.errors.isError">
+        <div *ngIf="birthday.errors.isErrorrrrrr">
             Invalid Birthday Input...
         </div>
     </div>
@@ -90,6 +90,7 @@
     </div>
     <br><br>
     <button id=submit type="submit" (click)="onSubmit()">Submit</button>
+    <div class=greet>{{greetings}}</div>
 
 </form>
 <div class=inputContent style="text-align:center;" >
